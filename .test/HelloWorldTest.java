@@ -14,9 +14,9 @@ public class HelloWorldTest {
         // Check that the class exists
         Class<?> helloClass;
         try {
-            helloClass = Class.forName("HelloWorld");
+            helloClass = Class.forName("Main");
         } catch (ClassNotFoundException e) {
-            fail("Could not find a class named 'HelloWorld'.");
+            fail("Could not find a class named 'Main'.");
             return; // unreachable, but keeps compiler happy
         }
 
@@ -25,7 +25,7 @@ public class HelloWorldTest {
         try {
             mainMethod = helloClass.getMethod("main", String[].class);
         } catch (NoSuchMethodException e) {
-            fail("The HelloWorld class must contain a main method.");
+            fail("The 'Main' class must contain a 'main' method.");
             return;
         }
 
@@ -42,12 +42,12 @@ public class HelloWorldTest {
             System.setOut(originalOut);
         }
 
-        String expected = "Hello Math 130!" + System.lineSeparator();
+        String expected = "Hello, GOALS in CS!" + System.lineSeparator();
 
         assertEquals(
             expected,
             output.toString(),
-            "The program must print exactly: Hello Math 130!"
+            "The program must print exactly: Hello, GOALS in CS!"
         );
     }
 }
